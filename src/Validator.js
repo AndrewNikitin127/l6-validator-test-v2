@@ -1,5 +1,6 @@
 import StringSchema from './StringSchema.js'
 import FunctionSchema from './FunctionSchema.js'
+import ObjectSchema from './ObjectSchema.js'
 
 export default class Validator {
   string(){
@@ -7,5 +8,8 @@ export default class Validator {
   }
   function(){
     return new FunctionSchema();
+  }
+  object(){
+    return new ObjectSchema();
   }
 }
