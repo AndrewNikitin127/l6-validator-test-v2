@@ -13,10 +13,9 @@ export default class FunctionSchema {
   }
   expect(val){
     const validator = (func) => func() === val;
-    return new FunctionSchema ([].concat(this.validators, validator), this.context)
+    return new FunctionSchema ([].concat(this.validators, validator), this.context) // {...this.context} ? вроде не надо клонировать объект. так как мы привязываем конкретный объект в callWith. Но чет коробит от этого.
   }
   callWith(context){
-    const a = new FunctionSchema([].concat(this.validators), context);
-    return a; 
+    return new FunctionSchema([].concat(this.validators), context);
   }
 }
